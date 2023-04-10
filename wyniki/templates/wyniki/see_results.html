@@ -1,0 +1,46 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+Preview
+{% endblock %}
+{% block content %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+    <body>
+        {% csrf_token %}
+        <p class="textLable">Patient ID: </p>
+        <p class="preview">{{ result.patient_id }} </p>
+        <br>
+        <p class="textLable">Type of examination (modality): </p>
+        <p class="preview"> {{ result.modality }} </p>
+        <br>
+        <p class="textLable">Hospital of examination: </p>
+        <div class="preview">{{ result.hospital }}</div>
+        <br>
+        <p class="textLable">Date of examination: </p>
+        <p class="preview"> {{ date }} </p>
+        <br>
+        <p class="textLable">Time of examination: </p>
+        <p class="preview"> {{ result.study_time }}  </p>
+        <br>
+        <p class="textLable">Note: </p>
+        <p class="preview"> {{ result.note }} </p>
+        <br>
+        <p class="textLable">Image URL: </p>
+        <p class="preview"> {{ result.pathfile | urlize }}  </p>
+        <br>
+        <p class="textLable">Image: </p>
+        {% if img_url_msg != False %}
+            <a class='preview' href="{{result.image.url}}">Click to open image</a>
+        {% else %}
+            <p class="preview">None</p>
+        {% endif %}
+        <br>
+
+
+        {% if user.username == doctor_name %}
+            <a href="{% url 'edit_results' user.username result.study_id%}" class="button">Edit</a>
+        {% endif %}
+
+    {{msg}}
+    </body>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+        <title>Hello, Django</title> 
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+    </head>
+    <body>
+        <span class="message">Hello, there {{ name }}!</span> It's {{ date | date:'l, d F, Y' }} at {{ date | time:'H:i:s' }}.
+    </body>
+{% endblock %}

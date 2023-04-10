@@ -1,0 +1,39 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+Add new result
+{% endblock %}
+{% block content %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+    <body>
+    <form action="create_study" method="post" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <label for="patient_id">Patient ID: </label>
+        <input id="patient_id" type="text" name="patient_id">
+        <br>
+        <label for="type">Type of examination (modality): </label>
+        <input id="type" type="text" name="type">
+        <br>
+        <label for="hospital">Hospital of examination: </label>
+        <input id="hospital" type="text" name="hospital">
+        <br>
+        <label for="date">Date of examination: </label>
+        <input id="date" type="date" name="date"  max="datetime.now()">
+        <br>
+        <label for="time">Time of examination: </label>
+        <input id="time" type="time" name="time">
+        <br>
+        <label for="note">Note: </label>
+        <textarea class="textarea" id="note" name="note">{{ result.note }}</textarea>
+        <br>
+        <label for="pathfile">Image URL: </label>
+        <input id="pathfile" type="text" name="pathfile">
+        <br>
+        <label for="image">Image object: </label>
+        <input id="actual-btn" type="file" name="image">
+        <br>
+        <input type="submit" value="Save">
+    </form>
+    {{msg}}
+    </body>
+{% endblock %}

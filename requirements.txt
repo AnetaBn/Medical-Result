@@ -1,0 +1,14 @@
+asgiref==3.5.2
+autopep8==2.0.1
+backports.zoneinfo==0.2.1
+cffi==1.15.1
+cryptography==38.0.4
+Django==4.1.4
+mysql-connector==2.2.9
+Pillow==9.3.0
+pycodestyle==2.10.0
+pycparser==2.21
+PyMySQL==1.0.2
+sqlparse==0.4.3
+tomli==2.0.1
+tzdata==2022.7

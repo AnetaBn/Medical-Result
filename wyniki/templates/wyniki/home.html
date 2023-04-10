@@ -1,0 +1,48 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+
+    <body>
+    {% if user.is_authenticated %}
+
+        <a href="{% url 'history' user.username %}"><button class="homebutton">History of results</button></a>
+        <br>
+        {% if request.user.groups.all.0.name == 'Lekarze' %}
+            <a href="{% url 'add_results' user.username %}"><button class="homebutton">Add new results</button></a>
+        {% endif %}
+
+    {% else %}
+        <table id="home_table" class="home_table">
+                <tr>
+                    <th><strong>Log in</strong></th>
+                </tr>
+                <tr>
+                    <td><a href="{% url 'login' %}">Log In</a></td>
+                </tr>
+        </table>
+        <br>
+        <table id="home_table" class="home_table">
+                    <th>register as a new patient</th>
+                </tr>
+                <tr>
+                    <td> <a href="{% url 'register_patient' %}">Sign Up (Patient)</a></td>
+                </tr>
+        </table>
+        <br>
+        <table id="home_table" class="home_table">
+                <tr>
+                    <th>register as a new doctor</th>
+                </tr>
+                <tr>
+                    <td> <a href="{% url 'register_doctor' %}">Sign Up (Doctor)</a></td>
+                </tr>
+
+            </table>
+    {% endif %}
+    <p>{{msg}}</p>
+    </body>
+{% endblock %}

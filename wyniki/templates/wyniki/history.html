@@ -1,0 +1,60 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+History of results
+{% endblock %}
+{% block content %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+    <body>
+        <div class="container4">
+            <form>
+               <p> <label class="container4" for="filter_id">You can search for results by patient id: </label>
+                <input type="text" name = "q" placeholder="Enter patient id...">
+                <button type="submit" class="d-inline-block" name= "search">Search</button> 
+               </p>
+            </form>
+        </div>
+{#    {% if user.username in doctor_list %}#}
+        <table id="study" class="history_table">
+            <tr>
+                <th><strong>Type of study</strong></th>
+                {% if request.user.groups.all.0.name == 'Lekarze' %}
+                    <th><strong>Patient</strong></th>
+                {% else %}
+                    <th><strong>Doctor</strong></th>
+                {% endif %}
+                <th><strong>Date</strong>
+                </th> 
+                {% if request.user.groups.all.0.name == 'Lekarze' %}
+                    <th>Edit</th>
+                {% endif %}
+                <th>Preview</th>
+            </tr>
+            {% for result in results_list %}
+                {% if request.user.groups.all.0.name == 'Lekarze' or result in patient_results  %}
+                    <tr>
+                        <td>{{ result.modality }}</td>
+                        {% if request.user.groups.all.0.name == 'Lekarze' %}
+                            <td>{{ result.patient.patient_name}}</td>
+                            {% else %}
+                                <td>{{ result.doctor.doctor_name}}</td>
+                        {% endif %}
+                        <td>{{ result.study_date}}</td>
+                        {% if request.user.groups.all.0.name == 'Lekarze' %}
+                            {% if result in doctor_results %}
+                                <td><a href="{% url 'edit_results' user.username result.study_id%}"><span class="edit">&#9998;</span></a></td>
+                            {% else %}
+                                <td></td>
+
+                            {% endif %}
+                        {% endif %}
+                        <td><a href="{% url 'see_results' user.username result.study_id%}"><span class="see">&#128065;</span></a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+{#    {% else %}#}
+{#        <strong>No studies to show</strong>#}
+{#    {% endif %}#}
+    </body>
+{% endblock %}

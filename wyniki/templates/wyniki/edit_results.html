@@ -1,0 +1,50 @@
+{% extends "wyniki/layout.html" %}
+{% block title %}
+Edit result
+{% endblock %}
+{% block content %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'wyniki/site.css' %}" />
+    <body>
+    <form action="" method="post" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <label for="patient_id">Patient ID: </label>
+        <input id="patient_id" type="text" name="patient_id" value={{ result.patient_id }} >
+        <br>
+        <label for="type">Type of examination (modality): </label>
+        <input id="type" type="text" name="type" value={{ result.modality }}>
+        <br>
+        <label for="hospital">Hospital of examination: </label>
+        <input id="hospital" type="text" name="hospital" value={{ result.hospital }}>
+        <br>
+        <label for="date">Date of examination: </label>
+        <input id="date" type="date" name="date" value={{ date }}>
+        <br>
+        <label for="time">Time of examination: </label>
+        <input id="time" type="time" name="time" value={{ result.study_time }} >
+        <br>
+        <label for="note">Note: </label>
+        <textarea class="textarea" id="note" name="note">{{ result.note }}</textarea>
+        <br>
+        <p class="textLable">Image URL: </p>
+        <p class="preview"> {{ result.pathfile | urlize }} </p>
+        <br>
+        <label for="pathfile">Replace with URL: </label>
+        <input id="pathfile" type="text" name="pathfile" value={{ result.filepath }}>
+        <br>
+        <label for="image">Image object: </label>
+        {% if img_url_msg != False %}
+            <a href="{{result.image.url}}">Click to open image</a>
+        {% else %}
+            <p class="preview">None</p>
+        {% endif %}
+        <br>
+        <label for="image">Replace with image: </label>
+        <input id="actual-btn" type="file" name="image">
+        <br>
+
+        <input type="submit" value="Edit" >
+    </form>
+    {{msg}}
+    </body>
+{% endblock %}

@@ -1,0 +1,227 @@
+.message {
+    font-weight: 600;
+    color: blue;
+}
+
+.navbar {
+    background-color: lightslategray;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+}
+
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img{
+    width: 25px;
+    height: 25px;
+    vertical-align: bottom;
+}
+
+label {
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.textLable {
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.preview {
+    display: inline;
+    color: lightslategray;
+    font-weight: bold;
+}
+
+
+input[type="text"]{
+   width: 400px;
+}
+
+input[type="submit"]{
+    background-color: lightslategray;
+    color: white;
+    border: lightslategray;
+    cursor: pointer;
+    padding: 5px 15px;
+    text-align: center;
+    border-radius: 7px;
+    /*margin: 20px;*/
+    margin-left: 50%;
+    margin-right:
+     50%;
+}
+
+input[type="sort"]{
+    background-color: lightslategray;
+    color: white;
+    border: lightslategray;
+    cursor: pointer;
+    padding: 5px 15px;
+    text-align: center;
+    border-radius: 7px;
+    /*margin: 20px;*/
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.button{
+    background-color: lightslategray;
+    color: white;
+    border: lightslategray;
+    cursor: pointer;
+    padding: 3px 15px;
+    text-align: center;
+    border-radius: 7px;
+    /*margin: 20px;*/
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.history_table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#study{
+    border-collapse: collapse;
+    border: 1px solid lightslategray;
+    width: 100%;
+}
+
+#study td, #study th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#study tr:nth-child(even){background-color: #f2f2f2;}
+
+#study tr:hover {background-color: #a8b3bd;}
+
+#study th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightslategray;
+  color: white;
+}
+
+#study th:nth-child(4), #study td:nth-child(4), #study th:nth-child(5), #study td:nth-child(5){
+    text-align: center;
+
+}
+
+.home_table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+#home_table{
+    width: 20%;
+    text-align: center;
+
+}
+
+
+#home_table td, #home_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#home_table tr:nth-child(even){
+    background-color: #f2f2f2;
+
+}
+
+#home_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: lightslategray;
+  color: white;
+}
+
+
+.edit{
+    color: lightslategray;
+    cursor: pointer;
+    text-align: center;
+}
+
+.edit:hover {
+    color: black;
+}
+
+.see{
+    color: lightslategray;
+    cursor: pointer;
+    text-align: center;
+}
+
+.see:hover {
+    color: black;
+}
+
+.textarea {
+    vertical-align: middle;
+    width: 400px;
+}
+
+.home{
+    color: white;
+}
+a:link {
+  text-decoration: none;
+}
+
+
+.homebutton {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: lightslategray;
+  color: white;
+  padding: 25px 50px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.homebutton:hover {
+  background-color: #a8b3bd;
+  color: black;
+}
+
+div.container4 {
+    height: 10em;
+    position: relative ;
+    display: inline-block;
+    text-align: right;
+    margin-bottom: 0px;
+    }
